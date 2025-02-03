@@ -70,6 +70,10 @@ Example Request:
 
     http://127.0.0.1:5555/api/classify-number?number=371
 
+This is the deployed url
+
+    https://ofonimensik-numbers-api-51.deno.dev/api/classify-number?number=371
+
 Example Response:
 
     {
@@ -85,8 +89,8 @@ CORS Configuration
 
 This API allows cross-origin requests by enabling CORS with the following configuration:
 
-app.use("_", cors({
-origin: "_", // Allow all origins
-allowHeaders: ["Content-Type"],
-allowMethods: ["GET"],
-}));
+    app.use("_", cors({
+    origin: "_", // Allow all origins
+    allowHeaders: ["Content-Type"],
+    allowMethods: ["GET"],
+    }));
