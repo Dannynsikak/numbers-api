@@ -85,8 +85,8 @@ CORS Configuration
 
 This API allows cross-origin requests by enabling CORS with the following configuration:
 
-app.use("_", cors({
-origin: "_", // Allow all origins
-allowHeaders: ["Content-Type"],
-allowMethods: ["GET"],
-}));
+    app.use("_", cors({
+    origin: "_", // Allow all origins
+    allowHeaders: ["Content-Type"],
+    allowMethods: ["GET"],
+    }));
