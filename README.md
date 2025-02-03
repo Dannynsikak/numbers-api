@@ -48,8 +48,9 @@ Installation
 
 Clone the repository and navigate into the project directory:
 
-git clone https://github.com/yourusername/number-classifier-api.git
-cd number-classifier-api
+git clone https://github.com/Dannynsikak/numbers-api.git
+
+    cd numbers-api
 
 Running the Server
 
@@ -67,18 +68,18 @@ Query Parameter: number (Required)
 
 Example Request:
 
-http://127.0.0.1:5555/api/classify-number?number=371
+    http://127.0.0.1:5555/api/classify-number?number=371
 
 Example Response:
 
-{
-"Number": 371,
-"is_prime": false,
-"is_perfect": false,
-"properties": ["amrstrong", "odd"],
-"digit_sum": 11,
-"fun_fact": "371 is an Armstrong number."
-}
+    {
+    "Number": 371,
+    "is_prime": false,
+    "is_perfect": false,
+    "properties": ["amrstrong", "odd"],
+    "digit_sum": 11,
+    "fun_fact": "371 is an Armstrong number."
+    }
 
 CORS Configuration
 
