@@ -24,14 +24,14 @@ const isPerfect = (num: number): boolean => {
 const isArmstrong = (num: number): boolean => {
   const digits = num.toString().split("").map(Number);
   const power = digits.length;
-  return digits.reduce((sum, d) => sum + Math.pow(d, power), 0) === num;
+  return digits.reduce((sum, d) => sum + d ** power, 0) === num;
 };
 
 const getDigitSum = (num: number): number => {
   return num
     .toString()
     .split("")
-    .reduce((sum, digit) => sum + parseInt(digit), 0);
+    .reduce((sum, digit) => sum + Number.parseInt(digit), 0);
 };
 
 // Fetch fun fact
@@ -59,15 +59,15 @@ app.get("/api/classify-number", async (c) => {
   const numStr = c.req.query("number");
 
   // validate input
-  if (!numStr || isNaN(Number(numStr))) {
+  if (!numStr || Number.isNaN(Number(numStr))) {
     return c.json({ number: numStr, error: true }, 400);
   }
 
-  const num = parseInt(numStr);
+  const num = Number.parseInt(numStr);
   const properties: string[] = [];
   if (isPrime(num)) properties.push("prime");
   if (isPerfect(num)) properties.push("perfect");
-  if (isArmstrong(num)) properties.push("amrstrong");
+  if (isArmstrong(num)) properties.push("armstrong");
   if (num % 2 === 0) properties.push("even");
   else properties.push("odd");
 
@@ -85,6 +85,6 @@ app.get("/api/classify-number", async (c) => {
 
 // start the server
 
-if (import.meta.main) {
+if (import.meta.url === Deno.mainModule) {
   Deno.serve({ hostname: "127.0.0.1", port: 5555 }, app.fetch);
 }
